@@ -15,7 +15,7 @@ import com.todo.start.service.TodoService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/todos")
@@ -35,7 +35,7 @@ public class TodoController {
         return todoService.getList();
     }   
 
-    
+ 
 @PutMapping
 public TodoModel updateTodo(@RequestBody TodoModel todo) {
     return todoService.updateTodo(todo);
@@ -43,7 +43,7 @@ public TodoModel updateTodo(@RequestBody TodoModel todo) {
 
 @DeleteMapping("/{id}")
 public String deleteTodo(@PathVariable Long id) {
-    todoService.deleteTodo(id);
+    todoService.deleteTodo(id.toString());
     return "Todo deleted successfully";
 }
 @PostMapping("/bulk")
