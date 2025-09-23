@@ -35,29 +35,51 @@ public class TodoController {
         return todoService.getList();
     }   
 
- 
-@PutMapping
-public TodoModel updateTodo(@RequestBody TodoModel todo) {
-    return todoService.updateTodo(todo);
-}
 
-@DeleteMapping("/{id}")
-public String deleteTodo(@PathVariable Long id) {
-    todoService.deleteTodo(id.toString());
-    return "Todo deleted successfully";
-}
-@PostMapping("/bulk")
-public List<TodoModel> createBulkTodos(@RequestBody List<TodoModel> todos) {
-    return todoService.createBulkTodos(todos);
-}
-@PutMapping("/bulk")
-public List<TodoModel> updateBulkTodos(@RequestBody List<TodoModel> todos) {
-    return todoService.updateBulkTodos(todos);
-}
+    @PutMapping
 
-@DeleteMapping("/bulkdelete")
+    public TodoModel updateTodo(@RequestBody TodoModel todo) {
+
+        return todoService.updateTodo(todo);
+
+    }
+
+
+    @DeleteMapping("/{id}")
+
+    public String deleteTodo(@PathVariable Long id) {
+
+        todoService.deleteTodo(id.toString());
+
+        return "Todo deleted successfully";
+
+    }
+
+    @PostMapping("/bulk")
+
+    public List<TodoModel> createBulkTodos(@RequestBody List<TodoModel> todos) {
+
+        return todoService.createBulkTodos(todos);
+
+    }
+
+    @PutMapping("/bulk")
+
+    public List<TodoModel> updateBulkTodos(@RequestBody List<TodoModel> todos) {
+
+        return todoService.updateBulkTodos(todos);
+
+    }
+
+
+@
+DeleteMapping("/bulkdelete")
+
 public String deleteBulkTodos(@RequestBody List<String> ids) {
+
     todoService.deleteBulkTodos(ids);
+
     return "Bulk delete successful";
+
 }
 }
